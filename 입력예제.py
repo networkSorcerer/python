@@ -36,6 +36,15 @@
 # print(f"총점 : {total}")
 # print(f"평균 : {average:.2f}")  # 평균을 소수점 두 자리까지 출력
 
-score = list(map(int, input("성적 입력 : ").split()))
-print(f"총점 : {sum(score)}")
-print(f"평균 : {sum(score) / len(score)}")
+# score = list(map(int, input("성적 입력 : ").split()))
+# print(f"총점 : {sum(score)}")
+# print(f"평균 : {sum(score) / len(score)}") # len 은 요소의 갯수를 구한다
+
+# 24 시간 제로 시간을 : 기준 으로 입력을 받아서 시, 분, 초로 찍는데 12 시간 제로 변환ㄴ
+hour, min, sec = map(int, input("시:분:초 :").split(":"))
+
+if hour > 12 :
+    hour -= 12 # hour = hour = -12
+    print(f"오후 {hour}시 {min}분 {sec}초")
+else : 
+    print(f"오전 {hour} 시 {min} 분 {sec}초")
