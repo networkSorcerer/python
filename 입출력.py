@@ -65,4 +65,4 @@ print(f"|{num1:8}|") # :8는 공간을 8자리 지정함, 우측 정렬
 print(f"|{num2:<8}|")  # 좌측 정렬
 print(f"|{num3:^8}|") # 중간 정렬
 print(f"|{num4:8}|")
-print(f"{num5:.3f}")
+print(f"{num5:.3f}") # 소수점 반올림
