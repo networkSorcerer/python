@@ -49,3 +49,28 @@ print(a == b) # False
 print(a >= b) # False
 print(a <= b) # True
 
+# 관계 연산자 : and(&&), or, not
+# or(||) 둘 중 하나만 참이면 참, not (!) 이전 상태를 비교
+x = 10
+y = 20
+z = 30
+rst1 = (x > 0) and (x > y) # False
+rst2 =(x > 0) or (x > y) # True
+rst3 = not((x > 0) or (x > y)) # False
+print(rst1, rst2, rst3)
+
+# 3 항 연산자 : 항 3개인 연산자 : 참과 거짓이 있는 조건문 동일
+age = int(input("나이를 입력 하세요 : "))
+is_adult = age > 19 and "성인" or "미 성년자"
+print(f"당신은 {is_adult}입니다.")
+
+
+if age > 19 :
+    print(f"당신은 성인입니다 ")
+else :
+    print(f"당신은 미성년자 입니다")
+
+is_adult = True if age > 18 else False
+print(1) if age > 18 else print(-1)
+
+age > 19 and print("성인 입니다") or print("미 성년자 입니다.")
