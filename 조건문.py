@@ -82,3 +82,37 @@ while True :
     except ValueError :
         print("잘못된 값 입니다.")
 
+num = int(input("숫자 입력 : "))
+a = num // 100
+b = (num % 100) // 10
+c = num % 10
+
+if a > b :
+    if a > c : print(a)
+    else : print(c)
+else :
+    if b > c : print(b)
+    else : print(c)
+
+while True:
+    try:
+        # 숫자 입력 받기
+        number = int(input("3자리 수를 입력 하세요: "))
+
+        # 3자리 수 검사
+        if number < 100 or number > 999:
+            print("3자리 수가 아닙니다. 다시 입력 하세요")
+            continue
+
+        # 각 자리 숫자를 구하기 위해 문자열로 변환
+        digits = [int(digit) for digit in str(number)]
+
+        # 가장 큰 숫자 찾기
+        highNumber = max(digits)
+
+        print(f"가장 큰 수를 가진 자릿 수는 {highNumber}")
+        print(f"백의 자리: {digits[0]}, 십의 자리: {digits[1]}, 일의 자리: {digits[2]}")
+        break
+
+    except ValueError:
+        print("잘못된 값 입니다. 숫자를 입력해 주세요.")
