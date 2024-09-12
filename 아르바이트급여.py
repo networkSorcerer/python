@@ -30,3 +30,4 @@ else :
 work_type_str = work_type == 1 and "주간" or "야간"
 pay_str = f"{pay : ,.of}"
 print(f"{work_time} 시간 동안 근무한 {work_type_str} 급여는 {pay_str} 원 입니다")
+
