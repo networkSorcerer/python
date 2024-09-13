@@ -1,6 +1,11 @@
 # 커피 메뉴 만들기
-# [1] 메뉴 보기 [2] 메뉴 조회 [3] 메뉴 추가 [4] 메뉴 삭제 [5] 종료
+# [1] 메뉴 보기 [2] 메뉴 조회 [3] 메뉴 추가 [4] 메뉴 삭제 [5] 불러 오기 [6] 저장 하기 [7] 종료
 # 기본 메뉴 만들기
+# 카테 고리 별 조회 추가
+#
+
+import json
+
 from unicodedata import category
 
 menu = {
@@ -15,6 +20,23 @@ menu = {
     "GreenAde": ["Ade", 5000, "포도 에이드 입니다."],
     "LemonAde": ["Ade", 4500, "레몬 에이드 입니다."]
 }
+
+file_name = "menu.json"
+# 파일 에서 메뉴를 읽어 오는 함수
+def load_menu() :
+    try :
+        with open("menu.json", "r", encoding="utf-8" ) as file:
+            return json.load(file)
+    except FileNotFoundError:
+        print("해당 파일이 없 습니다.")
+    except json.JSONDecodeError :
+        print("JSON 디코딩 실패")
+
+# 파일에 저장 하는 함수
+def save_menu() :
+    with open("menu.json", "w", encoding="utf-8") as file:
+        json.dump(menu, file, ensure_ascii=False, indent=4)
+
 
 # [1]메뉴 보기
 def print_menu() :
@@ -46,11 +68,18 @@ def del_menu(key):
         del menu[key]
         print(f"{key}메뉴가 삭제 되었 습니다.")
     else :
-        print("삭제 할 메뉴가 없습니다.")
-
+        print("삭제 할 메뉴가 없 습니다.")
+# 카테 고리 별 보기
+def get_category(cate) :
+    # for e in menu.values():
+    #     if cate == e[0]:
+    #         print(e[0], e[1], e[2])
+    for key,value in menu.items():
+        if cate == value[0]:
+            print(key, value[0], value[1], value[2])
 while True :
     print("메뉴를 선택 하세요 : ")
-    sel = input("[1]메뉴 보기 [2]메뉴 조회 [3]메뉴 추가 [4]메뉴 삭제 [5]종료 하기 : ")
+    sel = input("[1]메뉴 보기 [2]메뉴 조회 [3]메뉴 추가 [4]메뉴 삭제 [5] 불러 오기 [6] 저장 하기 [7] 분류별 보기 [8] 종료 : ")
     if sel == "1" :
         print_menu()
     elif sel == "2":
@@ -66,6 +95,13 @@ while True :
         key = input("삭제할 메뉴 입력 : " )
         del_menu(key)
     elif sel == "5":
+       menu = load_menu()
+    elif sel == "6":
+        save_menu()
+    elif sel == "7":
+        name = input("카테 고리 입력 : ")
+        get_category(name)
+    elif sel == "8":
         print("영업을 종료 합니다.")
         break
     else :
