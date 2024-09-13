@@ -10,22 +10,29 @@ print()
 # 중복 되지 않는 로또 번호 생성 : 1 ~ 45 사이의 임의의 수 6개
 # 리스를 사용 하고, 리스트 내에 임의로 생성한 번호가 있으면 , 추가 하면 안됨
 # if rand not in list
-print("로또 번호 자동 생성 : ")
-lotto = []
-while True:
-    rand = random.randrange(1,46)
-    if rand not in lotto:
-        lotto.append(rand)
-    if len(lotto) == 6: break
-print(lotto)
-# 빈 리스트 생성
-lotto_numbers = []
+# print("로또 번호 자동 생성 : ")
+# lotto = []
+# while True:
+#     rand = random.randrange(1,46)
+#     if rand not in lotto:
+#         lotto.append(rand)
+#     if len(lotto) == 6: break
+# print(lotto)
+# # 빈 리스트 생성
+# lotto_numbers = []
+#
+# # 6개의 중복되지 않는 로또 번호 생성
+# while len(lotto_numbers) < 6:
+#     rand = random.randint(1, 45)  # 1부터 45 사이의 임의의 숫자 생성
+#     if rand not in lotto_numbers:  # 리스트에 없는 경우에만 추가
+#         lotto_numbers.append(rand)
+#
+# # 생성된 로또 번호 출력
+# print(lotto_numbers)
+# lotto = set() # 집합은 자동 적으로 중복이 제거 된다
+# while len(lotto) < 6:
+#     rand = random.randrange(1, 46)
+#     lotto.add(rand)
+# print(lotto)
 
-# 6개의 중복되지 않는 로또 번호 생성
-while len(lotto_numbers) < 6:
-    rand = random.randint(1, 45)  # 1부터 45 사이의 임의의 숫자 생성
-    if rand not in lotto_numbers:  # 리스트에 없는 경우에만 추가
-        lotto_numbers.append(rand)
-
-# 생성된 로또 번호 출력
-print(lotto_numbers)
+lotto =[]
